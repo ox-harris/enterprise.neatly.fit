@@ -32,12 +32,12 @@ const oauth2Middleware = oauth2.createMiddleware({
  */
 export default async function(request, recieved, next) {
     return this.walk(oauth2Middleware).then(async () => {
-        var account = { oauth: request.oauth };
+        var account = { oauth: request.oauth, };
         var authStatus;
         if (next.pathname) {
             authStatus = await next(account);
+            return authStatus;
         }
-        console.log('>>', authStatus);
-        return authStatus;
+        return {};
     });
 };

@@ -1,5 +1,12 @@
 {
     "meta": {
         "index": {}
+    },
+    "subtree": {
+        "my-account": {
+            "meta": {
+                "index": {}
+            }
+        }
     }
 }
