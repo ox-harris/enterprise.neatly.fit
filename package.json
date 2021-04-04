@@ -8,6 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@webqit/oauth2-node-client": "^0.0.4"
+    "@webqit/oauth2-node-client": "^0.0.61"
   }
 }
