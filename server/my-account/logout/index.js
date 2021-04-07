@@ -2,12 +2,12 @@
 /**
  * 
  * @param Request   request 
- * @param Object    account 
+ * @param Object    auth 
  * @param Function  next 
  */
-export default async function(request, account, next) {
+export default async function(request, auth, next) {
     if (next.pathname) {
-        return next(account);
+        return next(auth);
     }
-    return account.oauth.logout(true);
+    return auth.oauth.logout(true);
 };

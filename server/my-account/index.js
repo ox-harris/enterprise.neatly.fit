@@ -2,20 +2,20 @@
 /**
  * 
  * @param Request   request 
- * @param Object    account 
+ * @param Object    auth 
  * @param Function  next 
  */
-export default async function(request, account, next) {
+export default async function(request, auth, next) {
     if (next.pathname) {
-        return next(account);
+        return next(auth);
     }
     try {
-        var authStatus;
-        if (!(authStatus = await account.oauth.handleToken())) {
-            authStatus = await account.oauth.login(['openid', 'profile', 'email'])
+        var user;
+        if (!(user = await auth.oauth.handleToken())) {
+            user = await auth.oauth.login(['openid', 'profile', 'email'])
         }
     } catch(e) {
         return e;
     }
-    return authStatus;
+    return user;
 };
